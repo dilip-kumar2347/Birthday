@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+
+  <meta name="robots"
+        content="noindex, nofollow, noarchive">
+
+  <meta name="theme-color"
+        content="#1b0c10">
+
+  <title>Happy Birthday, Prathiksha ♡</title>
+
+  <meta name="description"
+        content="A special birthday surprise for Prathiksha.">
+
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet">
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: #17090d;
+      color: #f8eee7;
+      font-family: "Inter", sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    .background {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .glow {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: .18;
+      background: #9d5063;
+    }
+
+    .glow:nth-child(1) {
+      top: 5%;
+      left: -100px;
+    }
+
+    .glow:nth-child(2) {
+      top: 45%;
+      right: -120px;
+      background: #c8a477;
+    }
+
+    .glow:nth-child(3) {
+      bottom: -120px;
+      left: 35%;
+      background: #753342;
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 80px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .content {
+      max-width: 900px;
+      width: 100%;
+      margin: auto;
+    }
+
+    .eyebrow {
+      font-size: 10px;
+      letter-spacing: .32em;
+      color: #d7b98d;
+      margin-bottom: 24px;
+    }
+
+    h1,
+    h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 500;
+      line-height: .95;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(60px, 12vw, 125px);
+    }
+
+    h2 {
+      font-size: clamp(48px, 9vw, 90px);
+    }
+
+    em {
+      color: #ddbd92;
+      font-style: italic;
+    }
+
+    p {
+      color: #cdbdb6;
+    }
+
+    .opening {
+      background:
+        radial-gradient(
+          circle at center,
+          #351a23,
+          #17090d 65%
+        );
+    }
+
+    .ornament {
+      font-size: 28px;
+      color: #d7b98d;
+      margin-bottom: 24px;
+      animation: pulse 3s infinite;
+    }
+
+    .intro {
+      max-width: 480px;
+      margin: 30px auto;
+    }
+
+    button {
+      border: 1px solid #c9aa7c;
+      background: transparent;
+      color: #f8eee7;
+      border-radius: 999px;
+      padding: 15px 26px;
+      font: 400 12px "Inter", sans-serif;
+      letter-spacing: .08em;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    button:hover {
+      background: #c9aa7c;
+      color: #241116;
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      min-height: 95vh;
+    }
+
+    .hero h1 {
+      margin-bottom: 30px;
+    }
+
+    .scroll {
+      margin-top: 70px;
+      font-size: 9px;
+      letter-spacing: .25em;
+      color: #8f7d77;
+    }
+
+    .message {
+      max-width: 760px;
+    }
+
+    .letter {
+      max-width: 720px;
+      margin: auto;
+      padding: 45px 35px;
+      background: rgba(255,255,255,.035);
+      border: 1px solid rgba(215,185,141,.22);
+      box-shadow: 0 25px 90px rgba(0,0,0,.3);
+    }
+
+    .letter p {
+      white-space: pre-line;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(24px, 4vw, 32px);
+      line-height: 1.45;
+      color: #f4e8e0;
+    }
+
+    .signature {
+      margin-top: 40px;
+      font-size: 12px;
+      color: #a88f86;
+    }
+
+    .gift {
+      font-size: 60px;
+      margin-bottom: 25px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    #surprise {
+      display: none;
+      max-width: 650px;
+      margin: 50px auto 0;
+    }
+
+    #surprise.show {
+      display: block;
+      animation: fadeUp 1s ease;
+    }
+
+    #surprise p {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 28px;
+    }
+
+    .hearts {
+      color: #d7b98d;
+      letter-spacing: 10px;
+      margin-top: 30px;
+    }
+
+    @keyframes pulse {
+      50% {
+        opacity: .45;
+        transform: scale(1.08);
+      }
+    }
+
+    @keyframes float {
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @media(max-width:600px) {
+
+      section {
+        padding: 70px 20px;
+      }
+
+      .letter {
+        padding: 30px 22px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="background">
+    <div class="glow"></div>
+    <div class="glow"></div>
+    <div class="glow"></div>
+  </div>
+
+
+  <main>
+
+    <!-- OPENING -->
+
+    <section class="opening">
+
+      <div class="content">
+
+        <div class="ornament">✦</div>
+
+        <div class="eyebrow">
+          A LITTLE SURPRISE
+        </div>
+
+        <h1>
+          Someone special<br>
+          <em>thought of you.</em>
+        </h1>
+
+        <p class="intro">
+          Take a moment.
+          There is something beautiful waiting for you.
+        </p>
+
+        <button onclick="openSurprise()">
+          Open the surprise →
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- BIRTHDAY -->
+
+    <section class="hero">
+
+      <div class="content">
+
+        <div class="eyebrow">
+          TODAY IS YOUR DAY
+        </div>
+
+        <h1>
+          Happy Birthday,<br>
+          <em>Prathiksha</em>
+        </h1>
+
+        <p>
+          A little collection of memories,
+          words and wishes — made just for you.
+        </p>
+
+        <div class="scroll">
+          SCROLL TO BEGIN<br>
+          ↓
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- MESSAGE -->
+
+    <section>
+
+      <div class="content message">
+
+        <div class="eyebrow">
+          A FEW WORDS
+        </div>
+
+        <h2>
+          For you,<br>
+          <em>with love.</em>
+        </h2>
+
+        <br><br>
+
+        <div class="letter">
+
+          <p>
+Happy Birthday, Prathiksha! ❤️
+
+Today is about celebrating you —
+your smile, your presence,
+and all the little things
+that make you special.
+
+May this new year of your life
+bring you beautiful moments,
+unexpected happiness,
+and countless reasons to smile.
+
+Some memories become special
+not because of where they happened,
+but because of who we shared them with.
+
+Here's to many more beautiful
+memories waiting to be created.
+          </p>
+
+          <div class="signature">
+            With love ♡
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FINAL SURPRISE -->
+
+    <section>
+
+      <div class="content">
+
+        <div class="gift">
+          🎁
+        </div>
+
+        <div class="eyebrow">
+          ONE LAST THING
+        </div>
+
+        <h2>
+          There is still<br>
+          <em>one more surprise.</em>
+        </h2>
+
+        <br>
+
+        <button onclick="revealSurprise()">
+          Open it ✦
+        </button>
+
+        <div id="surprise">
+
+          <div class="eyebrow">
+            HAPPY BIRTHDAY
+          </div>
+
+          <h2>
+            Here's to another<br>
+            <em>beautiful chapter.</em>
+          </h2>
+
+          <p>
+            May life surprise you in all the best ways.
+            May this year bring you more happiness,
+            more laughter, more unforgettable moments,
+            and everything your heart quietly wishes for.
+          </p>
+
+          <div class="hearts">
+            ✦ ✧ ♡ ✧ ✦
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <script>
+
+    function openSurprise() {
+
+      window.scrollTo({
+        top: window.innerHeight,
+        behavior: "smooth"
+      });
+
+      createSparkles(25);
+    }
+
+
+    function revealSurprise() {
+
+      const surprise =
+        document.getElementById("surprise");
+
+      surprise.classList.add("show");
+
+      surprise.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+
+      createSparkles(45);
+    }
+
+
+    function createSparkles(count) {
+
+      for (let i = 0; i < count; i++) {
+
+        const sparkle =
+          document.createElement("span");
+
+        sparkle.textContent =
+          Math.random() > .5 ? "✦" : "✧";
+
+        sparkle.style.position = "fixed";
+        sparkle.style.left =
+          Math.random() * 100 + "vw";
+
+        sparkle.style.top = "-20px";
+
+        sparkle.style.color = "#d7b98d";
+
+        sparkle.style.fontSize =
+          10 + Math.random() * 14 + "px";
+
+        sparkle.style.zIndex = "999";
+
+        sparkle.style.pointerEvents = "none";
+
+        sparkle.style.transition =
+          "transform 5s linear, opacity 5s linear";
+
+        document.body.appendChild(sparkle);
+
+        setTimeout(() => {
+
+          sparkle.style.transform =
+            "translateY(110vh) rotate(540deg)";
+
+          sparkle.style.opacity = "0";
+
+        }, 50);
+
+        setTimeout(() => {
+
+          sparkle.remove();
+
+        }, 5500);
+
+      }
+
+    }
+
+  </script>
+
+</body>
+</html>
