@@ -3,22 +3,15 @@
 <head>
   <meta charset="utf-8">
 
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta name="robots"
-        content="noindex, nofollow, noarchive">
+  <meta name="robots" content="noindex, nofollow, noarchive">
 
-  <meta name="theme-color"
-        content="#1b0c10">
+  <meta name="theme-color" content="#17090d">
 
   <title>Happy Birthday, Prathiksha ♡</title>
 
-  <meta name="description"
-        content="A special birthday surprise for Prathiksha.">
-
-  <link rel="preconnect"
-        href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
 
   <link rel="preconnect"
         href="https://fonts.gstatic.com"
@@ -43,48 +36,7 @@
       color: #f8eee7;
       font-family: "Inter", sans-serif;
       font-weight: 300;
-      line-height: 1.7;
       overflow-x: hidden;
-    }
-
-    .background {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: 0;
-    }
-
-    .glow {
-      position: absolute;
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      filter: blur(90px);
-      opacity: .18;
-      background: #9d5063;
-    }
-
-    .glow:nth-child(1) {
-      top: 5%;
-      left: -100px;
-    }
-
-    .glow:nth-child(2) {
-      top: 45%;
-      right: -120px;
-      background: #c8a477;
-    }
-
-    .glow:nth-child(3) {
-      bottom: -120px;
-      left: 35%;
-      background: #753342;
-    }
-
-    main {
-      position: relative;
-      z-index: 1;
     }
 
     section {
@@ -94,65 +46,110 @@
       align-items: center;
       justify-content: center;
       text-align: center;
+      position: relative;
     }
 
     .content {
-      max-width: 900px;
       width: 100%;
+      max-width: 950px;
       margin: auto;
     }
 
-    .eyebrow {
-      font-size: 10px;
-      letter-spacing: .32em;
-      color: #d7b98d;
-      margin-bottom: 24px;
-    }
-
     h1,
-    h2 {
+    h2,
+    h3 {
       font-family: "Cormorant Garamond", serif;
       font-weight: 500;
-      line-height: .95;
-      margin: 0;
+      line-height: 1;
     }
 
     h1 {
       font-size: clamp(60px, 12vw, 125px);
+      margin: 0;
     }
 
     h2 {
       font-size: clamp(48px, 9vw, 90px);
+      margin: 0;
     }
 
     em {
-      color: #ddbd92;
+      color: #d7b98d;
       font-style: italic;
     }
 
     p {
       color: #cdbdb6;
+      line-height: 1.8;
     }
+
+    .eyebrow {
+      color: #d7b98d;
+      font-size: 10px;
+      letter-spacing: .35em;
+      margin-bottom: 25px;
+    }
+
+    /* BACKGROUND */
+
+    .background {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 20%, #351a23, #17090d 65%);
+    }
+
+    .glow {
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: .18;
+      background: #9d5063;
+    }
+
+    .glow:nth-child(1) {
+      top: -120px;
+      left: -100px;
+    }
+
+    .glow:nth-child(2) {
+      right: -120px;
+      top: 45%;
+      background: #c8a477;
+    }
+
+    .glow:nth-child(3) {
+      bottom: -150px;
+      left: 35%;
+      background: #753342;
+    }
+
+    /* OPENING */
 
     .opening {
       background:
         radial-gradient(
           circle at center,
-          #351a23,
-          #17090d 65%
+          rgba(91,42,56,.55),
+          transparent 60%
         );
     }
 
     .ornament {
-      font-size: 28px;
+      font-size: 32px;
       color: #d7b98d;
-      margin-bottom: 24px;
+      margin-bottom: 25px;
       animation: pulse 3s infinite;
     }
 
     .intro {
-      max-width: 480px;
+      max-width: 500px;
       margin: 30px auto;
+      font-size: 16px;
     }
 
     button {
@@ -160,7 +157,7 @@
       background: transparent;
       color: #f8eee7;
       border-radius: 999px;
-      padding: 15px 26px;
+      padding: 15px 28px;
       font: 400 12px "Inter", sans-serif;
       letter-spacing: .08em;
       cursor: pointer;
@@ -170,11 +167,13 @@
     button:hover {
       background: #c9aa7c;
       color: #241116;
-      transform: translateY(-2px);
+      transform: translateY(-3px);
     }
 
+    /* HERO */
+
     .hero {
-      min-height: 95vh;
+      min-height: 100vh;
     }
 
     .hero h1 {
@@ -183,37 +182,80 @@
 
     .scroll {
       margin-top: 70px;
-      font-size: 9px;
-      letter-spacing: .25em;
       color: #8f7d77;
+      font-size: 9px;
+      letter-spacing: .3em;
     }
 
-    .message {
-      max-width: 760px;
+    /* PHOTO */
+
+    .photo-section {
+      min-height: auto;
+      padding-top: 120px;
+      padding-bottom: 120px;
     }
+
+    .photo-card {
+      margin: 55px auto;
+      max-width: 700px;
+      position: relative;
+    }
+
+    .photo-card img {
+      display: block;
+      width: 100%;
+      max-height: 800px;
+      object-fit: cover;
+      border-radius: 3px;
+      box-shadow:
+        0 30px 100px rgba(0,0,0,.5);
+      transition: transform .8s ease;
+    }
+
+    .photo-card:hover img {
+      transform: scale(1.015);
+    }
+
+    .photo-number {
+      margin-top: 18px;
+      color: #8f7d77;
+      font-size: 10px;
+      letter-spacing: .25em;
+    }
+
+    .photo-caption {
+      margin-top: 8px;
+      font-family: "Cormorant Garamond", serif;
+      color: #e8d8cf;
+      font-size: 24px;
+    }
+
+    /* LETTER */
 
     .letter {
       max-width: 720px;
-      margin: auto;
+      margin: 55px auto 0;
       padding: 45px 35px;
       background: rgba(255,255,255,.035);
-      border: 1px solid rgba(215,185,141,.22);
-      box-shadow: 0 25px 90px rgba(0,0,0,.3);
+      border: 1px solid rgba(215,185,141,.2);
+      box-shadow: 0 30px 90px rgba(0,0,0,.3);
     }
 
     .letter p {
-      white-space: pre-line;
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(24px, 4vw, 32px);
-      line-height: 1.45;
+      font-size: clamp(23px, 4vw, 31px);
+      line-height: 1.5;
       color: #f4e8e0;
+      white-space: pre-line;
     }
 
     .signature {
       margin-top: 40px;
-      font-size: 12px;
       color: #a88f86;
+      font-size: 12px;
     }
+
+    /* FINAL */
 
     .gift {
       font-size: 60px;
@@ -223,13 +265,13 @@
 
     #surprise {
       display: none;
+      margin: 55px auto 0;
       max-width: 650px;
-      margin: 50px auto 0;
     }
 
     #surprise.show {
       display: block;
-      animation: fadeUp 1s ease;
+      animation: fadeUp 1.2s ease;
     }
 
     #surprise p {
@@ -242,6 +284,8 @@
       letter-spacing: 10px;
       margin-top: 30px;
     }
+
+    /* ANIMATIONS */
 
     @keyframes pulse {
       50% {
@@ -268,10 +312,17 @@
       }
     }
 
+    /* MOBILE */
+
     @media(max-width:600px) {
 
       section {
         padding: 70px 20px;
+      }
+
+      .photo-section {
+        padding-top: 90px;
+        padding-bottom: 90px;
       }
 
       .letter {
@@ -292,89 +343,159 @@
   </div>
 
 
-  <main>
+  <!-- OPENING -->
 
-    <!-- OPENING -->
+  <section class="opening">
 
-    <section class="opening">
+    <div class="content">
 
-      <div class="content">
+      <div class="ornament">✦</div>
 
-        <div class="ornament">✦</div>
+      <div class="eyebrow">
+        A LITTLE SURPRISE
+      </div>
 
-        <div class="eyebrow">
-          A LITTLE SURPRISE
+      <h1>
+        Someone special<br>
+        <em>thought of you.</em>
+      </h1>
+
+      <p class="intro">
+        Take a moment.
+        There is something beautiful waiting for you.
+      </p>
+
+      <button onclick="openSurprise()">
+        Open the surprise →
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- BIRTHDAY REVEAL -->
+
+  <section class="hero">
+
+    <div class="content">
+
+      <div class="eyebrow">
+        TODAY IS YOUR DAY
+      </div>
+
+      <h1>
+        Happy Birthday,<br>
+        <em>Prathiksha</em>
+      </h1>
+
+      <p>
+        A little collection of memories,
+        words and wishes — made just for you.
+      </p>
+
+      <div class="scroll">
+        SCROLL TO BEGIN<br><br>
+        ↓
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PHOTO 1 -->
+
+  <section class="photo-section">
+
+    <div class="content">
+
+      <div class="eyebrow">
+        A BEAUTIFUL MOMENT
+      </div>
+
+      <h2>
+        Just <em>you.</em>
+      </h2>
+
+      <div class="photo-card">
+
+        <img
+          src="prathiksha-01.jpg"
+          alt="A special memory of Prathiksha"
+          loading="lazy"
+        >
+
+        <div class="photo-number">
+          MEMORY 01
         </div>
 
-        <h1>
-          Someone special<br>
-          <em>thought of you.</em>
-        </h1>
-
-        <p class="intro">
-          Take a moment.
-          There is something beautiful waiting for you.
-        </p>
-
-        <button onclick="openSurprise()">
-          Open the surprise →
-        </button>
+        <div class="photo-caption">
+          Some moments simply deserve to be remembered.
+        </div>
 
       </div>
 
-    </section>
+    </div>
+
+  </section>
 
 
-    <!-- BIRTHDAY -->
+  <!-- PHOTO 2 -->
 
-    <section class="hero">
+  <section class="photo-section">
 
-      <div class="content">
+    <div class="content">
 
-        <div class="eyebrow">
-          TODAY IS YOUR DAY
+      <div class="eyebrow">
+        ANOTHER LITTLE MEMORY
+      </div>
+
+      <h2>
+        Another side of <em>you.</em>
+      </h2>
+
+      <div class="photo-card">
+
+        <img
+          src="prathiksha-02.jpg"
+          alt="Another special memory of Prathiksha"
+          loading="lazy"
+        >
+
+        <div class="photo-number">
+          MEMORY 02
         </div>
 
-        <h1>
-          Happy Birthday,<br>
-          <em>Prathiksha</em>
-        </h1>
+        <div class="photo-caption">
+          Different moments. Same beautiful person.
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- MESSAGE -->
+
+  <section>
+
+    <div class="content">
+
+      <div class="eyebrow">
+        A FEW WORDS
+      </div>
+
+      <h2>
+        For you,<br>
+        <em>with love.</em>
+      </h2>
+
+      <div class="letter">
 
         <p>
-          A little collection of memories,
-          words and wishes — made just for you.
-        </p>
-
-        <div class="scroll">
-          SCROLL TO BEGIN<br>
-          ↓
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- MESSAGE -->
-
-    <section>
-
-      <div class="content message">
-
-        <div class="eyebrow">
-          A FEW WORDS
-        </div>
-
-        <h2>
-          For you,<br>
-          <em>with love.</em>
-        </h2>
-
-        <br><br>
-
-        <div class="letter">
-
-          <p>
 Happy Birthday, Prathiksha! ❤️
 
 Today is about celebrating you —
@@ -393,73 +514,71 @@ but because of who we shared them with.
 
 Here's to many more beautiful
 memories waiting to be created.
-          </p>
+        </p>
 
-          <div class="signature">
-            With love ♡
-          </div>
-
+        <div class="signature">
+          With love ♡
         </div>
 
       </div>
 
-    </section>
+    </div>
+
+  </section>
 
 
-    <!-- FINAL SURPRISE -->
+  <!-- FINAL SURPRISE -->
 
-    <section>
+  <section>
 
-      <div class="content">
+    <div class="content">
 
-        <div class="gift">
-          🎁
-        </div>
+      <div class="gift">
+        🎁
+      </div>
+
+      <div class="eyebrow">
+        ONE LAST THING
+      </div>
+
+      <h2>
+        There is still<br>
+        <em>one more surprise.</em>
+      </h2>
+
+      <br>
+
+      <button onclick="revealSurprise()">
+        Open it ✦
+      </button>
+
+      <div id="surprise">
 
         <div class="eyebrow">
-          ONE LAST THING
+          HAPPY BIRTHDAY
         </div>
 
         <h2>
-          There is still<br>
-          <em>one more surprise.</em>
+          Here's to another<br>
+          <em>beautiful chapter.</em>
         </h2>
 
-        <br>
+        <p>
+          May life surprise you in all the best ways.
+          May this year bring you more happiness,
+          more laughter, more unforgettable moments,
+          and everything your heart quietly wishes for.
+        </p>
 
-        <button onclick="revealSurprise()">
-          Open it ✦
-        </button>
-
-        <div id="surprise">
-
-          <div class="eyebrow">
-            HAPPY BIRTHDAY
-          </div>
-
-          <h2>
-            Here's to another<br>
-            <em>beautiful chapter.</em>
-          </h2>
-
-          <p>
-            May life surprise you in all the best ways.
-            May this year bring you more happiness,
-            more laughter, more unforgettable moments,
-            and everything your heart quietly wishes for.
-          </p>
-
-          <div class="hearts">
-            ✦ ✧ ♡ ✧ ✦
-          </div>
-
+        <div class="hearts">
+          ✦ ✧ ♡ ✧ ✦
         </div>
 
       </div>
 
-    </section>
+    </div>
 
-  </main>
+  </section>
 
 
   <script>
@@ -472,6 +591,7 @@ memories waiting to be created.
       });
 
       createSparkles(25);
+
     }
 
 
@@ -488,6 +608,7 @@ memories waiting to be created.
       });
 
       createSparkles(45);
+
     }
 
 
@@ -502,6 +623,7 @@ memories waiting to be created.
           Math.random() > .5 ? "✦" : "✧";
 
         sparkle.style.position = "fixed";
+
         sparkle.style.left =
           Math.random() * 100 + "vw";
 
