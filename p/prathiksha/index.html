@@ -735,7 +735,65 @@
       }
 
     }
+    /* =========================================
+       PERSONAL MESSAGE STYLING
+    ========================================= */
 
+    .poetry {
+      font-size: clamp(24px, 4vw, 34px) !important;
+      line-height: 1.7 !important;
+      font-style: italic;
+    }
+
+    .message-one .letter {
+      border-color: rgba(215,185,141,.28);
+    }
+
+    .message-two .letter,
+    .message-three .letter {
+      max-width: 760px;
+    }
+
+    .message-two .letter p,
+    .message-three .letter p {
+      font-size: clamp(24px, 4vw, 32px);
+      line-height: 1.65;
+    }
+
+    .message-three {
+      padding-bottom: 160px;
+    }
+
+    .tamil-final {
+      margin-top: 35px;
+
+      font-family:
+        "Cormorant Garamond",
+        serif;
+
+      font-size:
+        clamp(
+          27px,
+          5vw,
+          42px
+        ) !important;
+
+      font-style: italic;
+
+      color: #d7b98d !important;
+
+      line-height: 1.5 !important;
+    }
+
+    #surprise strong {
+      display: block;
+
+      margin-top: 10px;
+
+      color: #f4e8e0;
+
+      font-weight: 500;
+    }
 
     /* =========================================
        MOBILE
@@ -1169,146 +1227,206 @@
     </section>
 
 
-    <!-- PERSONAL MESSAGE -->
+    <!-- =========================================
+     PERSONAL MESSAGE 1
+========================================== -->
 
-    <section class="letter-section">
+<section class="letter-section message-one">
 
-      <div class="content">
+  <div class="content">
 
-        <div class="eyebrow">
-          A FEW WORDS
-        </div>
+    <div class="eyebrow">
+      FOR YOU
+    </div>
 
-        <h2>
+    <h2>
+      September <em>Maadham...</em>
+    </h2>
 
-          For you,<br>
+    <div class="letter">
 
-          <em>
-            with love.
-          </em>
+      <p class="poetry">
 
-        </h2>
+        September Maadham.
 
+        Paal vanna nilaveduthu
 
-        <div class="letter">
+        Paarkadalil palamurai salavai seithu
 
-          <p>
+        Pen uruvaai piranthaval aval thaano.
 
-Happy Birthday, Prathiksha! ❤️
+        Azhagai thatheduthavalo
 
-Today is about celebrating you —
-your smile, your presence,
-and all the little things
-that make you special.
+        En uyir malarai thatharithavalo…
 
-May this new year of your life
-bring you beautiful moments,
-unexpected happiness,
-and countless reasons to smile.
+      </p>
 
-Some memories become special
-not because of where they happened,
-but because of who we shared them with.
+      <div class="signature">
+        ♡
+      </div>
 
-Here's to many more beautiful
-memories waiting to be created.
+    </div>
 
-          </p>
+  </div>
+
+</section>
 
 
-          <div class="signature">
+<!-- =========================================
+     PERSONAL MESSAGE 2
+========================================== -->
 
-            With love ♡
+<section class="letter-section message-two">
 
-          </div>
+  <div class="content">
 
-        </div>
+    <div class="eyebrow">
+      FROM MY HEART
+    </div>
+
+    <h2>
+      The woman who <em>holds my heart.</em>
+    </h2>
+
+    <div class="letter">
+
+      <p>
+
+        Happy Birthday to the woman
+        who holds my heart,
+
+        who somehow manages to
+        tolerate me every single day.
+
+        I fall in love with you more
+        with every passing year. ❤️
+
+      </p>
+
+      <div class="signature">
+        Always yours ♡
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================
+     PERSONAL MESSAGE 3
+========================================== -->
+
+<section class="letter-section message-three">
+
+  <div class="content">
+
+    <div class="eyebrow">
+      THE LANGUAGE OF MY HEART
+    </div>
+
+    <h2>
+      My heart's <em>true home.</em>
+    </h2>
+
+    <div class="letter">
+
+      <p>
+
+        I used to think love was a feeling.
+
+        You entered my life and quietly
+        taught my heart a language
+        it had never spoken before.
+
+        Happy Birthday to my heart's
+        true home. ❤️
+
+      </p>
+
+      <div class="signature">
+        With all my love ♡
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+    <!-- =========================================
+     FINAL SURPRISE
+========================================== -->
+
+<section class="final-section">
+
+  <div class="content">
+
+    <div class="gift">
+      🎁
+    </div>
+
+    <div class="eyebrow">
+      ONE LAST THING
+    </div>
+
+    <h2>
+
+      There is still<br>
+
+      <em>
+        one more thing...
+      </em>
+
+    </h2>
+
+    <br>
+
+    <button
+      onclick="revealSurprise()">
+
+      Open it ✦
+
+    </button>
+
+
+    <div id="surprise">
+
+      <div class="eyebrow">
+        FROM THE BOTTOM OF MY HEART
+      </div>
+
+      <p>
+
+        You are, and always will be,
+
+        <strong>
+          my favourite part of this life. ❤️
+        </strong>
+
+      </p>
+
+      <p class="tamil-final">
+
+        Nee kaatru, naan maram…
+
+        Enna sonnaalum thalaiyaatuven.
+
+      </p>
+
+      <div class="hearts">
+
+        ✦ ✧ ♡ ✧ ✦
 
       </div>
 
-    </section>
+    </div>
 
+  </div>
 
-    <!-- FINAL SURPRISE -->
-
-    <section class="final-section">
-
-      <div class="content">
-
-        <div class="gift">
-          🎁
-        </div>
-
-        <div class="eyebrow">
-          ONE LAST THING
-        </div>
-
-        <h2>
-
-          There is still<br>
-
-          <em>
-            one more surprise.
-          </em>
-
-        </h2>
-
-        <br>
-
-        <button
-          onclick="revealSurprise()">
-
-          Open it ✦
-
-        </button>
-
-
-        <div id="surprise">
-
-          <div class="eyebrow">
-
-            HAPPY BIRTHDAY
-
-          </div>
-
-          <h2>
-
-            Here's to another<br>
-
-            <em>
-              beautiful chapter.
-            </em>
-
-          </h2>
-
-          <p>
-
-            May life surprise you
-            in all the best ways.
-
-            May this year bring you
-            more happiness,
-
-            more laughter,
-            more unforgettable moments,
-
-            and everything your heart
-            quietly wishes for.
-
-          </p>
-
-          <div class="hearts">
-
-            ✦ ✧ ♡ ✧ ✦
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
+</section>
 
   </main>
 
