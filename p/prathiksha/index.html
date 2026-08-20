@@ -616,53 +616,130 @@ border:
 
 
     /* =========================================
-       FINAL SURPRISE
-    ========================================= */
+   FINAL REVEAL — LAST POLISH
+========================================= */
 
-    .final-section {
-      min-height: 100vh;
-    }
+.final-section .gift {
+  transition:
+    opacity .7s ease,
+    transform .7s ease;
+}
 
-    .gift {
-      font-size: 60px;
+.final-section.revealing .gift {
+  opacity: 0;
+  transform:
+    scale(.72)
+    translateY(-15px);
+}
 
-      margin-bottom: 25px;
+.final-section.revealing #finalEyebrow,
+.final-section.revealing #finalHeading,
+.final-section.revealing #revealButton {
+  opacity: 0;
+  transform: translateY(-12px);
+}
 
-      animation:
-        float 3s ease-in-out infinite;
-    }
+.final-section.revealed #surprise {
+  display: block;
+  opacity: 1;
+  transform:
+    translateY(0)
+    scale(1);
+  pointer-events: auto;
+}
 
-    #surprise {
-      display: none;
+/* Main message */
 
-      margin:
-        55px auto 0;
+.main-reveal {
+  max-width: 720px;
+  margin: 0 auto;
 
-      max-width: 650px;
-    }
+  font-family:
+    "Cormorant Garamond",
+    serif;
 
-    #surprise.show {
-      display: block;
+  font-size:
+    clamp(28px, 4.5vw, 44px);
 
-      animation:
-        fadeUp 1.2s ease;
-    }
+  line-height: 1.45;
 
-    #surprise p {
-      font-family:
-        "Cormorant Garamond",
-        serif;
+  color: #f8eee7;
+}
 
-      font-size: 28px;
-    }
+.main-reveal strong {
+  display: block;
 
-    .hearts {
-      color: #d7b98d;
+  margin-top: 14px;
 
-      letter-spacing: 10px;
+  font-weight: 500;
 
-      margin-top: 30px;
-    }
+  color: #f8eee7;
+}
+
+/* Emotional divider */
+
+.reveal-divider {
+  margin: 38px auto;
+
+  color: #e6c08f;
+
+  font-size: 14px;
+
+  letter-spacing: 6px;
+}
+
+/* Tamil line */
+
+.tamil-final {
+  margin-top: 20px;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size:
+    clamp(25px, 4.5vw, 40px);
+
+  line-height: 1.5;
+
+  font-style: italic;
+
+  color: #e6c08f !important;
+}
+
+/* Final decorative line */
+
+.final-hearts {
+  margin-top: 38px;
+
+  color: #e6a4ad;
+
+  letter-spacing: 7px;
+
+  font-size: 14px;
+}
+
+@media(max-width:600px) {
+
+  .main-reveal {
+    font-size: 28px;
+    line-height: 1.5;
+  }
+
+  .tamil-final {
+    font-size: 27px;
+    line-height: 1.55;
+  }
+
+  .reveal-divider {
+    margin: 30px auto;
+  }
+
+  .final-hearts {
+    margin-top: 30px;
+  }
+
+}
 
 
     /* =========================================
@@ -1906,30 +1983,27 @@ border:
 
     function revealSurprise() {
 
+  function revealSurprise() {
+
   const finalSection =
     document.querySelector(
       ".final-section"
     );
 
 
-  /*
-    Stage 1:
-    Begin the reveal
-  */
+  /* Begin the reveal */
 
   finalSection.classList.add(
     "revealing"
   );
 
 
-  createSparkles(30);
+  /* Small first wave */
+
+  createSparkles(12);
 
 
-  /*
-    Stage 2:
-    Reveal the message
-    after a short pause
-  */
+  /* Reveal the message */
 
   setTimeout(
     function () {
@@ -1938,20 +2012,14 @@ border:
         "revealed"
       );
 
-
       createSparkles(18);
 
-
     },
-    1100
+    900
   );
 
 
-  /*
-    Stage 3:
-    Bring the final section
-    into the centre of the screen
-  */
+  /* Bring the message gently into view */
 
   setTimeout(
     function () {
@@ -1969,7 +2037,19 @@ border:
         });
 
     },
-    1200
+    950
+  );
+
+
+  /* Final tiny decorative wave */
+
+  setTimeout(
+    function () {
+
+      createSparkles(10);
+
+    },
+    2200
   );
 
 }
