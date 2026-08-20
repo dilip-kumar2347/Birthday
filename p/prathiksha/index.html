@@ -1465,28 +1465,55 @@
 
     function checkBirthdayUnlock() {
 
-      const now =
-        new Date();
+  /*
+    TEMPORARY TEST MODE
+
+    Add ?test=1 to the URL to preview
+    the complete birthday experience.
+
+    Example:
+    /Birthday/p/prathiksha/?test=1
+
+    REMOVE THIS TEST MODE AFTER TESTING.
+  */
+
+  const testMode =
+    new URLSearchParams(
+      window.location.search
+    ).get("test") === "1";
 
 
-      const difference =
-        unlockTime - now;
+  if (testMode) {
+
+    unlockBirthday();
+
+    return;
+
+  }
 
 
-      if (difference <= 0) {
-
-        unlockBirthday();
-
-        return;
-
-      }
+  const now =
+    new Date();
 
 
-      updateCountdown(
-        difference
-      );
+  const difference =
+    unlockTime - now;
 
-    }
+
+  if (difference <= 0) {
+
+    unlockBirthday();
+
+    return;
+
+  }
+
+
+  updateCountdown(
+    difference
+  );
+
+}
 
 
     /* =========================================
