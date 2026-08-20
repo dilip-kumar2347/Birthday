@@ -681,7 +681,38 @@
         transform 5s linear,
         opacity 5s linear;
     }
+/* =========================================
+   ROMANTIC FALLING ELEMENTS
+========================================= */
 
+.sparkle.heart {
+  color: #d7b98d;
+  font-size: 18px;
+}
+
+.sparkle.petal {
+  width: 10px;
+  height: 15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #d7b98d,
+      #b87986
+    );
+
+  border-radius:
+    80% 20% 80% 20%;
+
+  opacity: .8;
+
+  transform-origin: center;
+}
+
+.sparkle.dot {
+  font-size: 8px;
+  color: #d7b98d;
+}
 
     /* =========================================
        ANIMATIONS
@@ -1759,7 +1790,165 @@
       }
 
     }
+/* =========================================
+   ROMANTIC SPARKLES + HEARTS + PETALS
+========================================= */
 
+function createSparkles(
+  count
+) {
+
+  for (
+    let i = 0;
+    i < count;
+    i++
+  ) {
+
+    const sparkle =
+      document.createElement(
+        "span"
+      );
+
+
+    sparkle.className =
+      "sparkle";
+
+
+    /*
+      MIX:
+
+      0 - 66%
+      Elegant sparkles
+
+      66 - 82%
+      Romantic hearts
+
+      82 - 100%
+      Soft rose petals
+    */
+
+    const random =
+      Math.random();
+
+
+    if (random < .66) {
+
+      sparkle.textContent =
+        [
+          "✦",
+          "✧",
+          "⋆"
+        ][
+          Math.floor(
+            Math.random() * 3
+          )
+        ];
+
+    }
+
+    else if (random < .82) {
+
+      sparkle.classList.add(
+        "heart"
+      );
+
+      sparkle.textContent =
+        "♡";
+
+    }
+
+    else {
+
+      sparkle.classList.add(
+        "petal"
+      );
+
+    }
+
+
+    /* Random horizontal position */
+
+    sparkle.style.left =
+      Math.random() * 100 +
+      "vw";
+
+
+    /* Start slightly above screen */
+
+    sparkle.style.top =
+      "-25px";
+
+
+    /* Random size */
+
+    if (
+      !sparkle.classList.contains(
+        "petal"
+      )
+    ) {
+
+      sparkle.style.fontSize =
+        9 +
+        Math.random() * 14 +
+        "px";
+
+    }
+
+
+    /* Random fall duration */
+
+    const duration =
+      4 +
+      Math.random() * 4;
+
+
+    sparkle.style.transition =
+      `transform ${duration}s linear,
+       opacity ${duration}s linear`;
+
+
+    document.body.appendChild(
+      sparkle
+    );
+
+
+    /* Start falling */
+
+    setTimeout(
+      () => {
+
+        const rotation =
+          360 +
+          Math.random() * 540;
+
+
+        sparkle.style.transform =
+          `translateY(110vh)
+           rotate(${rotation}deg)`;
+
+
+        sparkle.style.opacity =
+          "0";
+
+      },
+      50
+    );
+
+
+    /* Remove after animation */
+
+    setTimeout(
+      () => {
+
+        sparkle.remove();
+
+      },
+      (duration * 1000) + 300
+    );
+
+  }
+
+}
 
     /* =========================================
        START COUNTDOWN
