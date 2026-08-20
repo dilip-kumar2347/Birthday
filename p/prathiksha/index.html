@@ -1763,545 +1763,153 @@ border:
   ========================================== -->
 
   <script>
+const unlockTime=new Date("2026-09-18T18:30:00Z");
 
+function checkBirthdayUnlock(){
+  const testMode=new URLSearchParams(window.location.search).get("test")==="1";
 
-    /*
-      IMPORTANT:
-
-      19 September 2026
-      12:00:00 AM
-      IST
-
-      IST = UTC + 5:30
-
-      Therefore the UTC target is:
-
-      18 September 2026
-      18:30:00 UTC
-    */
-
-    const unlockTime =
-      new Date(
-        "2026-09-18T18:30:00Z"
-      );
-
-
-    /* =========================================
-       CHECK LOCK / UNLOCK
-    ========================================== */
-
-    function checkBirthdayUnlock() {
-
-  /*
-    TEMPORARY TEST MODE
-
-    Add ?test=1 to the URL to preview
-    the complete birthday experience.
-
-    Example:
-    /Birthday/p/prathiksha/?test=1
-
-    REMOVE THIS TEST MODE AFTER TESTING.
-  */
-
-  const testMode =
-    new URLSearchParams(
-      window.location.search
-    ).get("test") === "1";
-
-
-  if (testMode) {
-
+  if(testMode){
     unlockBirthday();
-
     return;
-
   }
 
+  const now=new Date();
+  const difference=unlockTime.getTime()-now.getTime();
 
-  const now =
-    new Date();
-
-
-  const difference =
-    unlockTime - now;
-
-
-  if (difference <= 0) {
-
+  if(difference<=0){
     unlockBirthday();
-
     return;
-
   }
 
-
-  updateCountdown(
-    difference
-  );
-
+  updateCountdown(difference);
 }
 
+function updateCountdown(difference){
+  const totalSeconds=Math.max(0,Math.floor(difference/1000));
+  const days=Math.floor(totalSeconds/86400);
+  const hours=Math.floor((totalSeconds%86400)/3600);
+  const minutes=Math.floor((totalSeconds%3600)/60);
+  const seconds=totalSeconds%60;
 
-    /* =========================================
-       COUNTDOWN
-    ========================================== */
+  const daysElement=document.getElementById("days");
+  const hoursElement=document.getElementById("hours");
+  const minutesElement=document.getElementById("minutes");
+  const secondsElement=document.getElementById("seconds");
 
-    function updateCountdown(
-      difference
-    ) {
+  if(!daysElement||!hoursElement||!minutesElement||!secondsElement){
+    return;
+  }
 
-      const totalSeconds =
-        Math.floor(
-          difference / 1000
-        );
+  daysElement.textContent=String(days).padStart(2,"0");
+  hoursElement.textContent=String(hours).padStart(2,"0");
+  minutesElement.textContent=String(minutes).padStart(2,"0");
+  secondsElement.textContent=String(seconds).padStart(2,"0");
+}
 
+function unlockBirthday(){
+  const lockedScreen=document.getElementById("locked-screen");
+  const birthdayContent=document.getElementById("birthday-content");
 
-      const days =
-        Math.floor(
-          totalSeconds /
-          86400
-        );
+  if(!lockedScreen||!birthdayContent){
+    return;
+  }
 
+  lockedScreen.style.display="none";
+  birthdayContent.style.display="block";
+  document.body.style.overflowX="hidden";
 
-      const hours =
-        Math.floor(
-          (totalSeconds % 86400) /
-          3600
-        );
+  createSparkles(25);
+}
 
-
-      const minutes =
-        Math.floor(
-          (totalSeconds % 3600) /
-          60
-        );
-
-
-      const seconds =
-        totalSeconds % 60;
-
-
-      document.getElementById(
-        "days"
-      ).textContent =
-        String(days).padStart(
-          2,
-          "0"
-        );
-
-
-      document.getElementById(
-        "hours"
-      ).textContent =
-        String(hours).padStart(
-          2,
-          "0"
-        );
-
-
-      document.getElementById(
-        "minutes"
-      ).textContent =
-        String(minutes).padStart(
-          2,
-          "0"
-        );
-
-
-      document.getElementById(
-        "seconds"
-      ).textContent =
-        String(seconds).padStart(
-          2,
-          "0"
-        );
-
-    }
-
-
-    /* =========================================
-       UNLOCK
-    ========================================== */
-
-    function unlockBirthday() {
-
-      const lockedScreen =
-        document.getElementById(
-          "locked-screen"
-        );
-
-
-      const birthdayContent =
-        document.getElementById(
-          "birthday-content"
-        );
-
-
-      lockedScreen.style.display =
-        "none";
-
-
-      birthdayContent.style.display =
-        "block";
-
-
-      document.body.style.overflowX =
-        "hidden";
-
-
-      createSparkles(25);
-
-    }
-
-
-    /* =========================================
-       OPEN SURPRISE
-    ========================================== */
-
-    function openSurprise() {
-
-      window.scrollTo({
-
-        top:
-          window.innerHeight,
-
-        behavior:
-          "smooth"
-
-      });
-
-
-      createSparkles(12);
-
-    }
-
-
-    /* =========================================
-       FINAL SURPRISE
-    ========================================== */
-
-    function revealSurprise() {
-
-  const finalSection =
-    document.querySelector(
-      ".final-section"
-    );
-
-
-  /* Begin the reveal */
-
-  finalSection.classList.add(
-    "revealing"
-  );
-
-
-  /* Small first wave */
+function openSurprise(){
+  window.scrollTo({
+    top:window.innerHeight,
+    behavior:"smooth"
+  });
 
   createSparkles(12);
-
-
-  /* Reveal the message */
-
-  setTimeout(
-    function () {
-
-      finalSection.classList.add(
-        "revealed"
-      );
-
-      createSparkles(18);
-
-    },
-    900
-  );
-
-
-  /* Bring the message gently into view */
-
-  setTimeout(
-    function () {
-
-      document
-        .getElementById(
-          "surprise"
-        )
-        .scrollIntoView({
-
-          behavior: "smooth",
-
-          block: "center"
-
-        });
-
-    },
-    950
-  );
-
-
-  /* Final tiny decorative wave */
-
-  setTimeout(
-    function () {
-
-      createSparkles(10);
-
-    },
-    2200
-  );
-
 }
 
-    /* =========================================
-       SPARKLES
-    ========================================== */
-
-    function createSparkles(
-      count
-    ) {
-
-      for (
-        let i = 0;
-        i < count;
-        i++
-      ) {
-
-        const sparkle =
-          document.createElement(
-            "span"
-          );
-
-
-        sparkle.className =
-          "sparkle";
-
-
-        sparkle.textContent =
-          Math.random() > .5
-            ? "✦"
-            : "✧";
-
-
-        sparkle.style.left =
-          Math.random() * 100 +
-          "vw";
-
-
-        sparkle.style.top =
-          "-20px";
-
-
-        sparkle.style.fontSize =
-          10 +
-          Math.random() * 14 +
-          "px";
-
-
-        document.body.appendChild(
-          sparkle
-        );
-
-
-        setTimeout(
-          () => {
-
-            sparkle.style.transform =
-              "translateY(110vh) rotate(540deg)";
-
-            sparkle.style.opacity =
-              "0";
-
-          },
-          50
-        );
-
-
-        setTimeout(
-          () => {
-
-            sparkle.remove();
-
-          },
-          5500
-        );
-
-      }
-
-    }
-/* =========================================
-   ROMANTIC SPARKLES + HEARTS + PETALS
-========================================= */
-
-function createSparkles(
-  count
-) {
-
-  for (
-    let i = 0;
-    i < count;
-    i++
-  ) {
-
-    const sparkle =
-      document.createElement(
-        "span"
-      );
-
-
-    sparkle.className =
-      "sparkle";
-
-
-    /*
-      MIX:
-
-      0 - 66%
-      Elegant sparkles
-
-      66 - 82%
-      Romantic hearts
-
-      82 - 100%
-      Soft rose petals
-    */
-
-    const random =
-      Math.random();
-
-
-    if (random < .66) {
-
-      sparkle.textContent =
-        [
-          "✦",
-          "✧",
-          "⋆"
-        ][
-          Math.floor(
-            Math.random() * 3
-          )
-        ];
-
-    }
-
-    else if (random < .82) {
-
-      sparkle.classList.add(
-        "heart"
-      );
-
-      sparkle.textContent =
-        "♡";
-
-    }
-
-    else {
-
-      sparkle.classList.add(
-        "petal"
-      );
-
-    }
-
-
-    /* Random horizontal position */
-
-    sparkle.style.left =
-      Math.random() * 100 +
-      "vw";
-
-
-    /* Start slightly above screen */
-
-    sparkle.style.top =
-      "-25px";
-
-
-    /* Random size */
-
-    if (
-      !sparkle.classList.contains(
-        "petal"
-      )
-    ) {
-
-      sparkle.style.fontSize =
-        9 +
-        Math.random() * 14 +
-        "px";
-
-    }
-
-
-    /* Random fall duration */
-
-    const duration =
-      6 +
-      Math.random() * 3;
-
-
-    sparkle.style.transition =
-      `transform ${duration}s linear,
-       opacity ${duration}s linear`;
-
-
-    document.body.appendChild(
-      sparkle
-    );
-
-
-    /* Start falling */
-
-    setTimeout(
-      () => {
-
-        const rotation =
-          360 +
-          Math.random() * 540;
-
-
-        sparkle.style.transform =
-          `translateY(110vh)
-           rotate(${rotation}deg)`;
-
-
-        sparkle.style.opacity =
-          "0";
-
-      },
-      50
-    );
-
-
-    /* Remove after animation */
-
-    setTimeout(
-      () => {
-
-        sparkle.remove();
-
-      },
-      (duration * 1000) + 300
-    );
-
+function revealSurprise(){
+  const finalSection=document.querySelector(".final-section");
+
+  if(!finalSection){
+    return;
   }
 
+  finalSection.classList.add("revealing");
+  createSparkles(12);
+
+  setTimeout(function(){
+    finalSection.classList.add("revealed");
+    createSparkles(18);
+  },900);
+
+  setTimeout(function(){
+    const surprise=document.getElementById("surprise");
+
+    if(surprise){
+      surprise.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+      });
+    }
+  },1000);
+
+  setTimeout(function(){
+    createSparkles(10);
+  },2200);
 }
 
-    /* =========================================
-       START COUNTDOWN
-    ========================================== */
+function createSparkles(count){
+  for(let i=0;i<count;i++){
+    const sparkle=document.createElement("span");
+    sparkle.className="sparkle";
 
-    checkBirthdayUnlock();
+    const random=Math.random();
 
+    if(random<0.66){
+      sparkle.textContent=["✦","✧","⋆"][Math.floor(Math.random()*3)];
+    }else if(random<0.82){
+      sparkle.classList.add("heart");
+      sparkle.textContent="♡";
+    }else{
+      sparkle.classList.add("petal");
+    }
 
-    setInterval(
-      checkBirthdayUnlock,
-      1000
-    );
+    sparkle.style.left=Math.random()*100+"vw";
+    sparkle.style.top="-25px";
 
+    if(!sparkle.classList.contains("petal")){
+      sparkle.style.fontSize=9+Math.random()*14+"px";
+    }
 
-  </script>
+    const duration=6+Math.random()*3;
+
+    sparkle.style.transition=
+      `transform ${duration}s linear,opacity ${duration}s linear`;
+
+    document.body.appendChild(sparkle);
+
+    setTimeout(function(){
+      const rotation=360+Math.random()*540;
+
+      sparkle.style.transform=
+        `translateY(110vh) rotate(${rotation}deg)`;
+
+      sparkle.style.opacity="0";
+    },50);
+
+    setTimeout(function(){
+      sparkle.remove();
+    },duration*1000+300);
+  }
+}
+
+checkBirthdayUnlock();
+
+setInterval(checkBirthdayUnlock,1000);
+</script>
 
 
 </body>
