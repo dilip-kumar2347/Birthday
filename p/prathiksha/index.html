@@ -825,7 +825,209 @@
 
       font-weight: 500;
     }
+/* =========================================
+   FINAL SURPRISE REVEAL
+========================================= */
 
+#giftReveal,
+#finalEyebrow,
+#finalHeading,
+#revealButton {
+  transition:
+    opacity .8s ease,
+    transform .8s ease;
+}
+
+
+/* Revealed content */
+
+#surprise {
+  opacity: 0;
+
+  transform:
+    translateY(35px)
+    scale(.98);
+
+  pointer-events: none;
+
+  transition:
+    opacity 1.4s ease,
+    transform 1.4s ease;
+
+  margin-top: 65px;
+}
+
+
+/* When reveal begins */
+
+.final-section.revealing
+#giftReveal {
+
+  opacity: 0;
+
+  transform:
+    scale(.7)
+    translateY(-20px);
+
+}
+
+
+.final-section.revealing
+#finalEyebrow {
+
+  opacity: 0;
+
+  transform:
+    translateY(-15px);
+
+}
+
+
+.final-section.revealing
+#finalHeading {
+
+  opacity: 0;
+
+  transform:
+    translateY(-15px);
+
+}
+
+
+.final-section.revealing
+#revealButton {
+
+  opacity: 0;
+
+  transform:
+    scale(.9);
+
+  pointer-events: none;
+
+}
+
+
+/* Actual reveal */
+
+.final-section.revealed
+#surprise {
+
+  opacity: 1;
+
+  transform:
+    translateY(0)
+    scale(1);
+
+  pointer-events: auto;
+
+}
+
+
+/* Reveal typography */
+
+.reveal-eyebrow {
+
+  color: #d7b98d;
+
+  font-size: 10px;
+
+  letter-spacing: .35em;
+
+  margin-bottom: 35px;
+
+  font-weight: 500;
+
+}
+
+
+.main-reveal {
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size:
+    clamp(
+      29px,
+      5vw,
+      46px
+    );
+
+  line-height: 1.45;
+
+  color: #f4e8e0;
+
+}
+
+
+.main-reveal strong {
+
+  display: block;
+
+  margin-top: 18px;
+
+  color: #f4e8e0;
+
+  font-weight: 500;
+
+}
+
+
+/* Small emotional pause between messages */
+
+.reveal-divider {
+
+  margin:
+    45px auto;
+
+  color: #d7b98d;
+
+  letter-spacing: 8px;
+
+  font-size: 14px;
+
+}
+
+
+/* Tamil final line */
+
+.tamil-final {
+
+  margin-top: 25px;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size:
+    clamp(
+      28px,
+      5vw,
+      43px
+    );
+
+  line-height: 1.5;
+
+  font-style: italic;
+
+  color: #d7b98d;
+
+}
+
+
+.final-hearts {
+
+  margin-top: 45px;
+
+  color: #d7b98d;
+
+  letter-spacing: 8px;
+
+  font-size: 15px;
+
+  opacity: .9;
+
+}
     /* =========================================
        MOBILE
     ========================================= */
@@ -1391,19 +1593,23 @@
      FINAL SURPRISE
 ========================================== -->
 
+<!-- =========================================
+     FINAL SURPRISE
+========================================== -->
+
 <section class="final-section">
 
   <div class="content">
 
-    <div class="gift">
+    <div id="giftReveal" class="gift">
       🎁
     </div>
 
-    <div class="eyebrow">
+    <div id="finalEyebrow" class="eyebrow">
       ONE LAST THING
     </div>
 
-    <h2>
+    <h2 id="finalHeading">
 
       There is still<br>
 
@@ -1413,9 +1619,8 @@
 
     </h2>
 
-    <br>
-
     <button
+      id="revealButton"
       onclick="revealSurprise()">
 
       Open it ✦
@@ -1423,13 +1628,18 @@
     </button>
 
 
+    <!-- =====================================
+         REVEALED MESSAGE
+    ====================================== -->
+
     <div id="surprise">
 
-      <div class="eyebrow">
+      <div class="reveal-eyebrow">
         FROM THE BOTTOM OF MY HEART
       </div>
 
-      <p>
+
+      <div class="main-reveal">
 
         You are, and always will be,
 
@@ -1437,20 +1647,27 @@
           my favourite part of this life. ❤️
         </strong>
 
-      </p>
+      </div>
 
-      <p class="tamil-final">
+
+      <div class="reveal-divider">
+        ✦ &nbsp; ♡ &nbsp; ✦
+      </div>
+
+
+      <div class="tamil-final">
 
         Nee kaatru, naan maram…
 
+        <br><br>
+
         Enna sonnaalum thalaiyaatuven.
 
-      </p>
+      </div>
 
-      <div class="hearts">
 
-        ✦ ✧ ♡ ✧ ✦
-
+      <div class="final-hearts">
+        ✦ &nbsp; ✧ &nbsp; ♡ &nbsp; ✧ &nbsp; ✦
       </div>
 
     </div>
@@ -1687,32 +1904,73 @@
 
     function revealSurprise() {
 
-      const surprise =
-        document.getElementById(
-          "surprise"
-        );
+  const finalSection =
+    document.querySelector(
+      ".final-section"
+    );
 
 
-      surprise.classList.add(
-        "show"
+  /*
+    Stage 1:
+    Begin the reveal
+  */
+
+  finalSection.classList.add(
+    "revealing"
+  );
+
+
+  createSparkles(30);
+
+
+  /*
+    Stage 2:
+    Reveal the message
+    after a short pause
+  */
+
+  setTimeout(
+    function () {
+
+      finalSection.classList.add(
+        "revealed"
       );
-
-
-      surprise.scrollIntoView({
-
-        behavior:
-          "smooth",
-
-        block:
-          "center"
-
-      });
 
 
       createSparkles(45);
 
-    }
 
+    },
+    1100
+  );
+
+
+  /*
+    Stage 3:
+    Bring the final section
+    into the centre of the screen
+  */
+
+  setTimeout(
+    function () {
+
+      document
+        .getElementById(
+          "surprise"
+        )
+        .scrollIntoView({
+
+          behavior: "smooth",
+
+          block: "center"
+
+        });
+
+    },
+    1200
+  );
+
+}
 
     /* =========================================
        SPARKLES
